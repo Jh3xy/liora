@@ -21,6 +21,7 @@
   --color-foreground: #fff8ef;
   --color-muted: #d2bea4;
   --color-muted-soft: #9a8468;
+  --color-danger: #ff6b5e; /* errors, about 7:1 on --color-ink */
   --gradient-banner: linear-gradient(160deg, #6e2a00 0%, #9a4300 38%, #a86a00 72%, #2a1604 100%);
   --gradient-glow: radial-gradient(ellipse 60% 50% at 50% 0%, #ff8c0042, transparent 65%);
   --gradient-cta: linear-gradient(135deg, var(--color-flame-500), var(--color-gold-500) 55%, var(--color-sun-500));
@@ -29,7 +30,7 @@
   --color-white: #fff;
 
     /* fonts + transitions */
-  --font-poppins: "Poppins", "Poppins Fallback";
+  --font-poppins: "Poppins", system-ui, sans-serif;
   --default-font-family: var(--font-poppins);
   --default-transition-duration: .15s;
   --default-transition-timing-function: cubic-bezier(.4, 0, .2, 1);

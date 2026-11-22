@@ -17,41 +17,41 @@ if (root) {
       title: "Earn and become a shareholder",
       text: "An all-in-one, multi-purpose project: weekly and monthly dividends, products delivered to your door, and daily ways to earn.",
       cta: "See what Lioa is",
-      href: "#",
+      href: "/src/auth/?mode=signin",
     },
     {
       label: "Watch & Earn",
       title: "Earn up to ₦3,000 Every seconds watching videos",
       text: "₦3,000 on your Liora membership — content creator, music, AI, dance, and comedy videos, every 30 seconds you watch.",
       cta: "See watch & earn",
-      href: "#",
+      href: "/src/auth/?mode=signin",
     },
     {
       label: "Play & earn",
       title: "Earn up to ₦6,000 every 60 seconds playing games",
       text: "₦6,000 on your Liora membership — win or lose, every 60 seconds of gameplay pays.",
       cta: "See Play & earn",
-      href: "#",
+      href: "/src/auth/?mode=signin",
     },
     {
       label: "Friday Bonus Rewards",
       title: "Win & withdraw ₦10,000 every Friday",
       text: "Included with Liora membership — a random number appears every Friday, tap fast to claim your ₦10,000 reward and withdraw instantly.",
       cta: "See Friday bonus rewards",
-      href: "#",
+      href: "/src/auth/?mode=signin",
     },
     {
       label: "Why Choose Us",
       title: "Users first, every time",
       text: "Expert team, transparency, data security, 24/7 support, and fast payments — built for worldwide recognition.",
       cta: "Learn More",
-      href: "#",
+      href: "/src/auth/?mode=signin",
     },
   ];
 
   const N = cards.length;
   const RADIUS = 400;          // px, distance of side cards from the centre
-  const INTERVAL = 1500;       // ms between auto-rotations (guess)
+  const INTERVAL = 2000;       // ms between auto-rotations (guess)
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
 
   let active = 0;
