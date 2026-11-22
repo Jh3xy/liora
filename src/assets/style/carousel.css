@@ -1,0 +1,199 @@
+
+
+/* ============================================================
+   carousel.css: positions are set by carousel.js (inline styles)
+   ============================================================ */
+
+.stage { position: relative; margin-top: 3.5rem; }
+
+.stage__glow {
+  position: absolute;
+  top: 8rem;
+  left: 50%;
+  translate: -50% 0;
+  width: 16rem;
+  height: 16rem;
+  border-radius: 9999px;
+  background-color: color-mix(in oklab, var(--color-flame-500) 20%, transparent);
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.stage__cards {
+  position: relative;
+  margin-inline: auto;
+  margin-block: 70px;
+  height: 300px;
+  scale: 0.62;
+  perspective: 1200px;
+}
+
+/* ---------- cards ---------- */
+.stage-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 260px;
+  height: 340px;
+  overflow: hidden;
+  border-radius: 28px;
+  border: 1px solid #ffffff1a;
+  box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7);
+  text-align: left;
+  cursor: pointer;
+}
+.stage-card:focus-visible {
+  outline: 2px solid var(--color-gold-400);
+  outline-offset: 4px;
+}
+/* transitions only switch on after the first layout, so cards don't fly in on load */
+.is-ready .stage-card {
+  transition:
+    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    opacity 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.55s cubic-bezier(0.22, 1, 0.36, 1),
+    z-index 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* placeholder art: swap for <img> later (position absolute, inset 0, object-fit cover) */
+.stage-card__art { position: absolute; inset: 0; }
+.stage-card__art--1 { background: var(--gradient-banner); }
+.stage-card__art--2 { background: var(--gradient-brand); }
+.stage-card__art--3 { background: var(--gradient-cta); }
+.stage-card__art--4 { background: var(--gradient-button); }
+.stage-card__art--5 { background: linear-gradient(200deg, var(--color-gold-600), var(--color-ink-raised)); }
+
+.stage-card__shade {
+  position: absolute;
+  inset: 0;
+  opacity: 0.8;
+  background-image: linear-gradient(
+    to top in oklab,
+    color-mix(in oklab, var(--color-ink) 85%, transparent),
+    color-mix(in oklab, var(--color-ink) 10%, transparent),
+    transparent
+  );
+  transition: opacity 0.3s var(--default-transition-timing-function);
+}
+.stage-card[aria-current="true"] .stage-card__shade { opacity: 0.5; }
+
+.stage-card__label {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  font-size: var(--text-xs);
+  line-height: var(--text-xs--line-height);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-wide);
+  text-transform: uppercase;
+  color: var(--color-gold-400);
+}
+
+/* ---------- dots (26px tap area, 6px look: same as the live site) ---------- */
+.stage__dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+}
+.stage-dot {
+  box-sizing: border-box;
+  flex: none;
+  width: 28px;
+  height: 28px;
+  padding: 11px;
+  border-radius: 9999px;
+  background-color: #ffffff33;
+  background-clip: content-box;
+  transition: all 0.3s var(--default-transition-timing-function);
+}
+.stage-dot.is-active {
+  width: 46px;
+  background-color: var(--color-gold-400);
+}
+@media (hover: hover) {
+  .stage-dot:not(.is-active):hover { background-color: #ffffff66; }
+}
+
+/* ---------- description box ---------- */
+.stage-box {
+  position: relative;
+  margin-inline: auto;
+  margin-top: 2rem;
+  max-width: var(--container-xl);
+}
+.stage-box__inner {
+  position: relative;
+  z-index: 101;
+  border-radius: var(--radius-3xl);
+  border: 1px solid var(--color-border);
+  background-color: #140c06;
+  padding: 1.5rem;
+  text-align: center;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+.stage-box__inner.is-swapping { opacity: 0; transform: translateY(8px); }
+
+.stage-box__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  background-color: #0d0804;
+  padding: 0.25rem 0.75rem;
+  font-size: 11px;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #ffd34d;
+}
+.stage-box__title {
+  margin-top: 0.75rem;
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-foreground);
+}
+.stage-box__text {
+  margin-inline: auto;
+  margin-top: 0.5rem;
+  max-width: var(--container-md);
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: #eadcc6;
+}
+.stage-box__cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+  border-radius: 9999px;
+  background-image: var(--gradient-cta);
+  padding: 0.75rem 1.5rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-ink);
+}
+
+/* ---------- breakpoints (keep at the bottom so they win) ---------- */
+@media (min-width: 40rem) {
+  .stage__cards { height: 380px; scale: 0.85; }
+  .stage-card { width: 290px; height: 380px; }
+  .stage-box__inner { padding: 2rem; }
+  .stage-box__title { font-size: var(--text-2xl); line-height: var(--text-2xl--line-height); }
+  .stage-box__text { font-size: var(--text-base); }
+}
+@media (min-width: 64rem) {
+  .stage__cards { height: 420px; scale: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .is-ready .stage-card,
+  .stage-box__inner { transition: none; }
+}
+
+.stage-card img.stage-card__art { width: 100%; height: 100%; object-fit: cover; }
+

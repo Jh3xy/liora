@@ -1,0 +1,175 @@
+
+/* ============================================================
+   header.css
+   Desktop menu shows at >= 1150px (original: md:flex + a patch
+   that hides it between 768 and 1149px).
+   ============================================================ */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  background-color: color-mix(in oklab, var(--color-ink) 60%, transparent);
+  -webkit-backdrop-filter: blur(var(--blur-sm));
+  backdrop-filter: blur(var(--blur-sm));
+  transition-property: color, background-color, border-color, outline-color,
+    text-decoration-color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: var(--default-transition-timing-function);
+}
+/* scrolled state — INFERRED (h-16 / border / darker bg exist in the CSS but are unused on load) */
+.site-header.is-scrolled {
+  border-bottom-color: var(--color-border);
+  background-color: color-mix(in oklab, var(--color-ink) 90%, transparent);
+  -webkit-backdrop-filter: blur(var(--blur-md));
+  backdrop-filter: blur(var(--blur-md));
+}
+
+.site-header__nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  max-width: var(--container-6xl);
+  height: 5rem;
+  padding-inline: 1.5rem;
+  transition: height 0.3s var(--default-transition-timing-function);
+}
+.site-header.is-scrolled .site-header__nav { height: 4rem; }
+
+/* ---------- brand ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+.brand__mark {
+  width: 2rem;
+  height: 2.25rem;
+}
+.brand__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.brand__name {
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-foreground);
+}
+.brand__tagline {
+  margin-top: 0.25rem;
+  font-size: 9px;
+  font-weight: var(--font-weight-medium);
+  letter-spacing: 0.12em;
+  color: var(--color-muted-soft);
+}
+
+/* ---------- desktop menu ---------- */
+.nav-menu {
+  display: none;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding-inline: 1rem;
+  white-space: nowrap;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-muted);
+}
+.nav-link {
+  position: relative;
+  padding-block: 0.25rem;
+  white-space: nowrap;
+  transition-property: color, background-color, border-color, outline-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, translate, scale,
+    rotate, filter, backdrop-filter;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+}
+.nav-link__bar {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -0.125rem;
+  height: 1px;
+  transform-origin: left;
+  scale: 0 1;
+  background: var(--color-gold-400);
+  transition: scale 0.3s var(--default-transition-timing-function);
+}
+@media (hover: hover) {
+  .nav-link:hover { color: var(--color-foreground); }
+  .nav-link:hover .nav-link__bar { scale: 1 1; }
+}
+
+/* ---------- burger ---------- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.nav-burger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  border: 1px solid var(--color-border);
+  color: var(--color-foreground);
+  transition-property: color, background-color, border-color, outline-color,
+    text-decoration-color, fill, stroke, opacity, box-shadow, transform, translate, scale,
+    rotate, filter, backdrop-filter;
+  transition-duration: var(--default-transition-duration);
+  transition-timing-function: var(--default-transition-timing-function);
+}
+.nav-burger .icon-close { display: none; }
+.nav-burger[aria-expanded="true"] .icon-open { display: none; }
+.nav-burger[aria-expanded="true"] .icon-close { display: block; }
+@media (hover: hover) {
+  .nav-burger:hover { border-color: var(--color-flame-500); color: var(--color-flame-400); }
+}
+
+/* ---------- mobile menu (INFERRED from screenshot measurements) ---------- */
+.mobile-menu {
+  position: absolute;
+  inset-inline: 0;
+  top: 100%;
+  border-bottom: 1px solid var(--color-border-soft);
+  background-color: color-mix(in oklab, var(--color-ink) 95%, transparent);
+}
+.mobile-menu__list {
+  padding: 1rem 1.5rem;
+}
+.mobile-menu__list a {
+  display: block;
+  padding: 0.75rem;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-muted);
+  transition: color var(--default-transition-duration) var(--default-transition-timing-function);
+}
+@media (hover: hover) {
+  .mobile-menu__list a:hover { color: var(--color-foreground); }
+}
+.mobile-menu__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  border-top: 1px solid var(--color-border-soft);
+  padding: 1.5rem;
+}
+
+@media (min-width: 1150px) {
+  .nav-menu { display: flex; }
+  .nav-burger { display: none; }
+  .mobile-menu { display: none; }
+}
+
