@@ -1,220 +1,297 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0d0804">
-  <title>Liora | Sign In </title>
-  <link rel="stylesheet" href="/src/assets/style/auth-page.css">
-</head>
-<body class="auth-page">
-  <div class="auth-page-container">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0d0804" />
+    <title>Liora | Sign In</title>
+    <link rel="stylesheet" href="/src/assets/style/auth-page.css" />
+  </head>
+  <body class="auth-page">
+    <div class="auth-page-container">
+      <header class="auth-header">
+        <a class="auth-brand" href="/" aria-label="Your brand home">
+          <svg
+            class="brand__mark"
+            width="32"
+            height="36"
+            viewBox="0 0 250 276"
+            aria-hidden="true"
+            focusable="false"
+          >
+            <defs>
+              <linearGradient
+                id="liora-mark-gradient"
+                x1="0"
+                y1="0"
+                x2="0"
+                y2="1"
+              >
+                <stop offset="0%" stop-color="#ff8a00"></stop>
+                <stop offset="55%" stop-color="#ffb000"></stop>
+                <stop offset="100%" stop-color="#ffe14a"></stop>
+              </linearGradient>
+            </defs>
+            <g fill="url(#liora-mark-gradient)">
+              <path d="M90 4h93L98 132H5z"></path>
+              <path d="M5 136h93l44 66H49z"></path>
+              <path d="M196 134l48 69-48 69-47-69z"></path>
+            </g>
+          </svg>
+          <span class="brand-name">Liora</span>
+        </a>
 
-    <header class="auth-header">
-      <a class="auth-brand" href="/" aria-label="Your brand home">
-        <svg class="brand__mark" width="32" height="36" viewBox="0 0 250 276" aria-hidden="true" focusable="false"><defs><linearGradient id="liora-mark-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff8a00"></stop><stop offset="55%" stop-color="#ffb000"></stop><stop offset="100%" stop-color="#ffe14a"></stop></linearGradient></defs><g fill="url(#liora-mark-gradient)"><path d="M90 4h93L98 132H5z"></path><path d="M5 136h93l44 66H49z"></path><path d="M196 134l48 69-48 69-47-69z"></path></g></svg>
-        <span class="brand-name">Liora</span>
-      </a>
+        <a class="auth-home-link" href="/">
+          <span class="home-arrow" aria-hidden="true">←</span>
+          <span>Home</span>
+        </a>
+      </header>
 
-      <a class="auth-home-link" href="/">
-        <span class="home-arrow" aria-hidden="true">←</span>
-        <span>Home</span>
-      </a>
-    </header>
+      <main class="auth-main">
+        <section class="auth-card" aria-label="Account access">
+          <h1 class="auth-title" id="auth-title">Create account</h1>
+          <nav
+            class="auth-tabs"
+            role="tablist"
+            aria-label="Choose an account action"
+          >
+            <a
+              class="auth-tab is-active"
+              id="create-tab"
+              href="?mode=create"
+              data-mode="create"
+              role="tab"
+              aria-selected="true"
+              aria-controls="create-panel"
+            >
+              Create account
+            </a>
+            <a
+              class="auth-tab"
+              id="signin-tab"
+              href="?mode=signin"
+              data-mode="signin"
+              role="tab"
+              aria-selected="false"
+              aria-controls="signin-panel"
+            >
+              Sign in
+            </a>
+          </nav>
 
-    <main class="auth-main">
-      <section class="auth-card" aria-label="Account access">
-
-        <nav class="auth-tabs" role="tablist" aria-label="Choose an account action">
-          <a class="auth-tab is-active" id="create-tab" href="?mode=create"
-             role="tab" aria-selected="true" aria-controls="create-panel">
-            Create account
-          </a>
-          <a class="auth-tab" id="signin-tab" href="?mode=signin"
-             role="tab" aria-selected="false" aria-controls="signin-panel">
-            Sign in
-          </a>
-        </nav>
-
-        <div class="auth-panels">
-          <!-- CREATE ACCOUNT: visible by default, matching ?mode=create -->
-          <section class="auth-panel visible" id="create-panel" role="tabpanel"
-                   aria-labelledby="create-tab" aria-hidden="false">
-            <form class="auth-form create-form" id="create-form" action="#" method="post">
-
-              <div class="form-field">
-                <label for="full-name">Full name</label>
-                <input type="text" id="full-name" name="fullName" placeholder="John Doe"
-                       autocomplete="name" required>
-              </div>
-
-              <div class="form-row">
+          <div class="auth-panels">
+            <!-- CREATE ACCOUNT: visible by default, matching ?mode=create -->
+            <section
+              class="auth-panel visible"
+              id="create-panel"
+              role="tabpanel"
+              aria-labelledby="create-tab"
+              aria-hidden="false"
+            >
+              <form
+                class="auth-form create-form"
+                id="create-form"
+                action="#"
+                method="post"
+              >
                 <div class="form-field">
-                  <label for="username">Username</label>
-                  <input type="text" id="username" name="username" placeholder="John026"
-                         autocomplete="username" required>
+                  <label for="full-name">Full name</label>
+                  <input
+                    type="text"
+                    id="full-name"
+                    name="fullName"
+                    placeholder="John Doe"
+                    autocomplete="name"
+                    required
+                  />
                 </div>
+
+                <div class="form-row">
+                  <div class="form-field">
+                    <label for="username">Username</label>
+                    <input
+                      type="text"
+                      id="username"
+                      name="username"
+                      placeholder="John026"
+                      autocomplete="username"
+                      required
+                    />
+                  </div>
+                  <div class="form-field">
+                    <label for="phone">Phone</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      placeholder="+234..."
+                      autocomplete="tel"
+                      required
+                    />
+                  </div>
+                </div>
+
                 <div class="form-field">
-                  <label for="phone">Phone</label>
-                  <input type="tel" id="phone" name="phone" placeholder="+234..."
-                         autocomplete="tel" required>
+                  <label for="country">Country</label>
+                  <div class="select-wrapper">
+                    <select id="country" name="country" required>
+                      <option value="" selected disabled>
+                        Select your country...
+                      </option>
+                      <option value="Nigeria">Nigeria</option>
+                      <option value="Ghana">Ghana</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <span class="select-chevron" aria-hidden="true"></span>
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-field">
-                <label for="country">Country</label>
-                <div class="select-wrapper">
-                  <select id="country" name="country" required>
-                    <option value="" selected disabled>Select your country...</option>
-                    <option value="Nigeria">Nigeria</option>
-                    <option value="Ghana">Ghana</option>
-                    <option value="Other">Other</option>
-                  </select>
-                  <span class="select-chevron" aria-hidden="true"></span>
+                <div class="form-field">
+                  <label for="create-email">Email</label>
+                  <input
+                    type="email"
+                    id="create-email"
+                    name="email"
+                    placeholder="you@example.com"
+                    autocomplete="email"
+                    required
+                  />
                 </div>
-              </div>
 
-              <div class="form-field">
-                <label for="create-email">Email</label>
-                <input type="email" id="create-email" name="email" placeholder="you@example.com"
-                       autocomplete="email" required>
-              </div>
-
-              <div class="form-field">
-                <label for="create-password">Password</label>
-                <div class="password-wrapper">
-                  <input type="password" id="create-password" name="password"
-                         placeholder="6+ characters" autocomplete="new-password"
-                         minlength="6" required>
-                  <button class="password-toggle" type="button"
-                          data-password-toggle="create-password" aria-pressed="false">
-                    View
-                  </button>
+                <div class="form-field">
+                  <label for="create-password">Password</label>
+                  <div class="password-wrapper">
+                    <input
+                      type="password"
+                      id="create-password"
+                      name="password"
+                      placeholder="6+ characters"
+                      autocomplete="new-password"
+                      minlength="6"
+                      required
+                    />
+                    <button
+                      class="password-toggle"
+                      type="button"
+                      data-password-toggle="create-password"
+                      aria-pressed="false"
+                    >
+                      View
+                    </button>
+                  </div>
                 </div>
-              </div>
 
-              <div class="form-field">
-                <label for="referral-id">Referral ID <span class="optional-label">(optional)</span></label>
-                <input type="text" id="referral-id" name="referralId" placeholder="EVR-XXXX">
-              </div>
-
-              <fieldset class="form-field subscription-field">
-                <legend>Your subscription</legend>
-                <label class="subscription-card" for="premium-plan">
-                  <input type="radio" id="premium-plan" name="subscription" value="premium" checked>
-                  <span class="subscription-details">
-                    <span class="subscription-name">LIORA PREMIUM</span>
-                    <span class="subscription-price">₦14,950</span>
-                    <span class="subscription-duration">1 year (12 months)</span>
-                  </span>
-                </label>
-              </fieldset>
-
-              <button class="auth-submit" type="submit">CREATE MY ACCOUNT</button>
-            </form>
-          </section>
-
-          <!-- SIGN IN: hidden by default, matching ?mode=signin -->
-          <section class="auth-panel hidden" id="signin-panel" role="tabpanel"
-                   aria-labelledby="signin-tab" aria-hidden="true" hidden>
-            <form class="auth-form signin-form" id="signin-form" action="#" method="post">
-
-              <div class="form-field">
-                <label for="signin-identity">Email or Username</label>
-                <input type="text" id="signin-identity" name="identity"
-                       placeholder="Type your email or username"
-                       autocomplete="username" required>
-              </div>
-
-              <div class="form-field">
-                <label for="signin-password">Password</label>
-                <div class="password-wrapper">
-                  <input type="password" id="signin-password" name="password"
-                         placeholder="Your password" autocomplete="current-password" required>
-                  <button class="password-toggle" type="button"
-                          data-password-toggle="signin-password" aria-pressed="false">
-                    View
-                  </button>
+                <div class="form-field">
+                  <label for="referral-id"
+                    >Referral ID
+                    <span class="optional-label">(optional)</span></label
+                  >
+                  <input
+                    type="text"
+                    id="referral-id"
+                    name="referralId"
+                    placeholder="EVR-XXXX"
+                  />
                 </div>
-              </div>
 
-              <button class="auth-submit" type="submit">SIGN IN</button>
+                <fieldset class="form-field subscription-field">
+                  <legend>Your subscription</legend>
+                  <label class="subscription-card" for="premium-plan">
+                    <input
+                      type="radio"
+                      id="premium-plan"
+                      name="subscription"
+                      value="premium"
+                      checked
+                    />
+                    <span class="subscription-details">
+                      <span class="subscription-name">LIORA PREMIUM</span>
+                      <span class="subscription-price">₦14,950</span>
+                      <span class="subscription-duration"
+                        >1 year (12 months)</span
+                      >
+                    </span>
+                  </label>
+                </fieldset>
 
-              <p class="auth-form-footer">
-                <span>Don't have an account?</span>
-                <a class="auth-switch-link" href="?mode=create">Create one</a>
-              </p>
-            </form>
-          </section>
-        </div>
-      </section>
-    </main>
-  </div>
+                <button class="auth-submit" type="submit">
+                  CREATE MY ACCOUNT
+                </button>
+              </form>
+            </section>
 
-  <script>
-    (() => {
-      const panels = {
-        create: document.querySelector('#create-panel'),
-        signin: document.querySelector('#signin-panel')
-      };
-      const tabs = {
-        create: document.querySelector('#create-tab'),
-        signin: document.querySelector('#signin-tab')
-      };
+            <!-- SIGN IN: hidden by default, matching ?mode=signin -->
+            <section
+              class="auth-panel hidden"
+              id="signin-panel"
+              role="tabpanel"
+              aria-labelledby="signin-tab"
+              aria-hidden="true"
+              hidden
+            >
+              <form
+                class="auth-form signin-form"
+                id="signin-form"
+                action="#"
+                method="post"
+              >
+                <div class="form-field">
+                  <label for="signin-identity">Email or Username</label>
+                  <input
+                    type="text"
+                    id="signin-identity"
+                    name="identity"
+                    placeholder="Type your email or username"
+                    autocomplete="username"
+                    required
+                  />
+                </div>
 
-      function setMode(mode, updateUrl = false) {
-        const activeMode = mode === 'signin' ? 'signin' : 'create';
+                <div class="form-field">
+                  <label for="signin-password">Password</label>
+                  <div class="password-wrapper">
+                    <input
+                      type="password"
+                      id="signin-password"
+                      name="password"
+                      placeholder="Your password"
+                      autocomplete="current-password"
+                      required
+                    />
+                    <button
+                      class="password-toggle"
+                      type="button"
+                      data-password-toggle="signin-password"
+                      aria-pressed="false"
+                    >
+                      View
+                    </button>
+                  </div>
+                </div>
 
-        Object.entries(panels).forEach(([name, panel]) => {
-          const isActive = name === activeMode;
-          panel.classList.toggle('visible', isActive);
-          panel.classList.toggle('hidden', !isActive);
-          panel.hidden = !isActive;
-          panel.setAttribute('aria-hidden', String(!isActive));
-        });
+                <button class="auth-submit" type="submit">SIGN IN</button>
 
-        Object.entries(tabs).forEach(([name, tab]) => {
-          const isActive = name === activeMode;
-          tab.classList.toggle('is-active', isActive);
-          tab.setAttribute('aria-selected', String(isActive));
-        });
+                <p class="auth-form-footer">
+                  <span>Don't have an account?</span>
+                  <a class="auth-switch-link" href="?mode=create">Create one</a>
+                </p>
+              </form>
+            </section>
+          </div>
+          <div
+            class="auth-loading"
+            id="auth-loading"
+            role="status"
+            aria-live="polite"
+            hidden
+          >
+            <span class="spinner" aria-hidden="true"></span>
+            <p class="auth-loading-text"></p>
+          </div>
+        </section>
+      </main>
+    </div>
 
-        if (updateUrl) {
-          const url = new URL(window.location.href);
-          url.searchParams.set('mode', activeMode);
-          window.history.pushState({ mode: activeMode }, '', url);
-        }
-      }
-
-      document.querySelectorAll('.auth-tab, .auth-switch-link').forEach(link => {
-        link.addEventListener('click', event => {
-          const url = new URL(link.href, window.location.href);
-          const mode = url.searchParams.get('mode');
-          if (mode === 'create' || mode === 'signin') {
-            event.preventDefault();
-            setMode(mode, true);
-          }
-        });
-      });
-
-      document.querySelectorAll('[data-password-toggle]').forEach(button => {
-        button.addEventListener('click', () => {
-          const input = document.getElementById(button.dataset.passwordToggle);
-          const showPassword = input.type === 'password';
-          input.type = showPassword ? 'text' : 'password';
-          button.textContent = showPassword ? 'Hide' : 'View';
-          button.setAttribute('aria-pressed', String(showPassword));
-          button.setAttribute('aria-label', showPassword ? 'Hide password' : 'Show password');
-        });
-      });
-
-      window.addEventListener('popstate', () => {
-        setMode(new URLSearchParams(window.location.search).get('mode'));
-      });
-
-      setMode(new URLSearchParams(window.location.search).get('mode'));
-    })();
-  </script>
-  <script type="module" src="/src/assets/js/app.js"></script>
-</body>
+    <script type="module" src="/src/assets/js/auth.js"></script>
+  </body>
 </html>
