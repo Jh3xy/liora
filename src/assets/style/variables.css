@@ -2,6 +2,7 @@
 /* Design Tokens & Varibles */
 
 :root{
+  --app-height: 100%;
   --color-ink: #0d0804;
   --color-ink-raised: #170e06;
   --color-surface: #ffdcaa09;

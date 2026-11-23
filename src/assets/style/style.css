@@ -17,6 +17,7 @@
 .app-shell {
   position: fixed;
   inset: 0;
+  height: var(--app-height);
   width: 100%;
   max-width: var(--container-md);
   margin-inline: auto;
@@ -25,6 +26,14 @@
   border-right: 1px solid var(--color-border-soft);
   overflow: hidden;
   overflow: clip; /* never scrollable, not even by focus */
+}
+
+@media (max-width: 600px) {
+  .app-shell {
+    max-width: none;
+    border-left: 0;
+    border-right: 0;
+  }
 }
 
 .app-root,
