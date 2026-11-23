@@ -14,7 +14,7 @@ import "./reveal.js";
 import "./navbar.js";
 import "./carousel.js";
 import "./faq.js";
-import "./dashboard.js"
+// import "./dashboard.js" - so laanding page does not load dashboard code
 
 
 console.log("[APP]: Initialized")

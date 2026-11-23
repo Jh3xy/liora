@@ -12,7 +12,7 @@ window.addEventListener("scroll", onScroll, { passive: true });
 function setOpen(open) {
   burger?.setAttribute("aria-expanded", String(open));
   burger?.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-  menu.hidden = !open;
+  if (menu) menu.hidden = !open;
 }
 
 burger?.addEventListener("click", () => {

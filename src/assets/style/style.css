@@ -15,22 +15,30 @@
 /* Dashboard styles */
 /* 1. Outer App Frame */
 .app-shell {
-  position: relative;
+  position: fixed;
+  inset: 0;
   width: 100%;
   max-width: var(--container-md);
-  height: 100vh;
-  height: 100dvh;
-  margin: 0 auto;
+  margin-inline: auto;
   background-color: var(--color-ink);
   border-left: 1px solid var(--color-border-soft);
   border-right: 1px solid var(--color-border-soft);
   overflow: hidden;
+  overflow: clip; /* never scrollable, not even by focus */
+}
+
+.app-root,
+.app-root body {
+  height: 100%;
+  overflow: hidden;
+  overscroll-behavior: none;
 }
 
 /* 2. Inner 3-Region Viewport Grid */
 .main-shell {
   display: grid;
-  grid-template-rows: auto 1fr auto;
+  /* grid-template-rows: auto 1fr auto; */
+  grid-template-rows: auto minmax(0, 1fr) auto;
   width: 100%;
   height: 100%;
 }
@@ -126,7 +134,7 @@
   padding: 1.25rem 1rem 5.5rem; /* Extra bottom padding so floating chat button never blocks content */
   background-image: var(--gradient-glow);
   background-repeat: no-repeat;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
 }
 
 .spa-view.is-hidden {
@@ -155,8 +163,10 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   align-items: center;
-  height: 4.25rem;
-  padding: 0.25rem 0.5rem;
+  /* height: 4.25rem;
+  padding: 0.25rem 0.5rem; */
+  height: calc(4.25rem + env(safe-area-inset-bottom, 0px));
+padding: 0.25rem 0.5rem env(safe-area-inset-bottom, 0px);
   background-color: var(--color-ink);
   border-top: 1px solid var(--color-border-soft);
   z-index: 10;
@@ -193,7 +203,8 @@
 .chat-fab {
   position: absolute;
   right: 1rem;
-  bottom: 5rem;
+  /* bottom: 5rem; */
+  bottom: calc(5rem + env(safe-area-inset-bottom, 0px));
   z-index: 20;
   display: inline-flex;
   align-items: center;
@@ -375,12 +386,15 @@
   inset: 0;
   z-index: 50;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 1rem;
+  overflow-y: auto;
+  overscroll-behavior: contain;
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.2s var(--default-transition-timing-function);
+  transition:
+    opacity 0.2s var(--default-transition-timing-function),
+    visibility 0s linear 0.2s;
 }
 
 .modal-card {
@@ -405,15 +419,21 @@
   inset: 0;
   z-index: 30;
   background-color: rgba(0, 0, 0, 0.72);
-  backdrop-filter: blur(14px);
   opacity: 0;
+  visibility: hidden;
   pointer-events: none;
-  transition: opacity var(--default-transition-duration) var(--default-transition-timing-function);
+  transition:
+    opacity 0.25s var(--default-transition-timing-function),
+    visibility 0s linear 0.25s;
 }
 
 .shell-backdrop.is-open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px); /* only paid for while open */
+  transition-delay: 0s;
 }
 
 /* Slide-Over Sidebar Drawer */
@@ -429,11 +449,16 @@
   background-color: var(--color-ink-raised);
   border-right: 1px solid var(--color-border);
   transform: translateX(-100%);
-  transition: transform 0.25s var(--default-transition-timing-function);
+  visibility: hidden; /* closed drawer can't take focus */
+  transition:
+    transform 0.25s var(--default-transition-timing-function),
+    visibility 0s linear 0.25s;
 }
 
 .sidebar-drawer.is-open {
   transform: translateX(0);
+  visibility: visible;
+  transition-delay: 0s;
 }
 
 .drawer-link {
@@ -1131,8 +1156,10 @@
 /* Modal Open State & Gatekeeping Styling */
 .app-modal.is-open {
   opacity: 1;
+  visibility: visible;
   pointer-events: auto;
   z-index: 60;
+  transition-delay: 0s;
 }
 
 .shell-backdrop.is-modal-open {
@@ -1141,6 +1168,7 @@
 
 .gate-modal-card {
   position: relative;
+  margin: auto;
   width: 100%;
   max-width: 22rem;
   background-color: #191008;

@@ -92,6 +92,30 @@ function syncActiveNav(viewName) {
     link.setAttribute("aria-current", isMatch ? "page" : "false");
   });
 }
+const logoutBtn = document.getElementById("logout-btn");
+
+function handleLogout() {
+  // Clears active session ("demo:session") and redirects to `${ROUTES.auth}?mode=signin`
+  if (typeof signOut === "function") {
+    signOut({ redirect: false });
+  } else {
+    localStorage.removeItem("demo:session");
+  }
+
+  // Optional for full-flow testing: uncomment if you also want to wipe saved demo users/data
+  // localStorage.removeItem("demo:users");
+
+  if (isDrawerOpen) {
+    setDrawerOpen(false);
+  }
+
+  const signInUrl = ROUTES?.auth
+    ? `${ROUTES.auth}?mode=signin`
+    : "/src/auth/?mode=signin";
+  location.replace(signInUrl);
+}
+
+logoutBtn?.addEventListener("click", handleLogout);
 
 function switchView(viewName, { closeDrawer = false } = {}) {
   const targetView = views.find((view) => view.dataset.view === viewName);

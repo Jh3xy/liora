@@ -1,8 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="app-root">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#0d0804">
+<link rel="icon" href="/favicon.ico" sizes="any" />
   <title>Liora - Dashboard</title>
 </head>
 <body>
@@ -762,7 +764,7 @@
             <p class="user-handle" id="drawer-user-handle">@jheeyy</p>
           </div>
         </div>
-        <button type="button" class="drawer-logout js-gate-restricted" id="logout-btn">Logout</button>
+        <button type="button" class="drawer-logout" id="logout-btn">Logout</button>
       </div>
     </aside>
 
@@ -793,6 +795,7 @@
     import { requireSession } from '../assets/js/session.js';
     requireSession();
   </script>
-  <script type="module" src="/src/assets/js/app.js"></script>
+  <!-- <script type="module" src="/src/assets/js/app.js"></script> -->
+  <script type="module" src="/src/assets/js/dashboard-main.js"></script>
 </body>
 </html>
