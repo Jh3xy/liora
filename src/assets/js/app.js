@@ -14,6 +14,7 @@ import "./reveal.js";
 import "./navbar.js";
 import "./carousel.js";
 import "./faq.js";
+import "./dashboard.js"
 
 
 console.log("[APP]: Initialized")

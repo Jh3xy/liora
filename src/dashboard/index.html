@@ -6,7 +6,789 @@
   <title>Liora - Dashboard</title>
 </head>
 <body>
-  <h1>Your Dashboard is coming soon!</h1>
+  <div class="app-shell">
+    <!-- Main 100dvh App Frame -->
+    <div class="main-shell">
+      <!-- 1. Top Navbar -->
+      <header class="top-navbar">
+        <div class="navbar-left">
+          <button type="button" class="icon-btn" id="menu-toggle-btn" aria-label="Open menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <a href="#home" class="brand-logo" data-view-target="home">
+            <svg class="brand__mark" width="32" height="36" viewBox="0 0 250 276" aria-hidden="true" class="h-9 w-8"><defs><linearGradient id="liora-mark-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff8a00"></stop><stop offset="55%" stop-color="#ffb000"></stop><stop offset="100%" stop-color="#ffe14a"></stop></linearGradient></defs><g fill="url(#liora-mark-gradient)"><path d="M90 4h93L98 132H5z"></path><path d="M5 136h93l44 66H49z"></path><path d="M196 134l48 69-48 69-47-69z"></path></g></svg>
+            <span class="brand-text">Liora</span>
+          </a>
+        </div>
+
+        <button type="button" class="icon-btn notification-btn" data-view-target="alerts" aria-label="Notifications">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+          </svg>
+          <span class="badge-dot" aria-hidden="true"></span>
+        </button>
+      </header>
+
+      <!-- 2. Central Scrollable SPA Stage -->
+       <!-- 2. Central Scrollable SPA Stage -->
+      <main class="spa-stage" id="spa-stage">
+
+        <!-- Home (Welcome Header + 2x2 Stats + Subscription Banner + Quick Actions + Available Tasks) -->
+        <section class="spa-view is-active" id="view-home" data-view="home">
+          <div class="view-head home-welcome">
+            <h2 class="home-welcome-title">Welcome back, <span class="accent-name" id="home-user-first-name">Theophilus</span></h2>
+            <p class="view-subtitle">Your account is registered. One more step — activate your subscription to move toward full access.</p>
+          </div>
+
+          <!-- 2x2 Summary Stat Grid -->
+          <div class="summary-grid">
+            <article class="stat-tile">
+              <span class="stat-icon-box is-gold" aria-hidden="true">
+                <i data-lucide="credit-card"></i>
+              </span>
+              <p class="stat-value is-gold">₦23,650</p>
+              <span class="stat-label">Welcome Bonus</span>
+            </article>
+
+            <article class="stat-tile">
+              <span class="stat-icon-box is-gold" aria-hidden="true">
+                <i data-lucide="trending-up"></i>
+              </span>
+              <p class="stat-value">₦11,260</p>
+              <span class="stat-label">AI Earnings</span>
+            </article>
+
+            <article class="stat-tile">
+              <span class="stat-icon-box is-gold" aria-hidden="true">
+                <i data-lucide="clock"></i>
+              </span>
+              <p class="stat-value">₦34,910</p>
+              <span class="stat-label">Total Pending</span>
+            </article>
+
+            <article class="stat-tile">
+              <span class="stat-icon-box is-gold" aria-hidden="true">
+                <i data-lucide="check-circle-2"></i>
+              </span>
+              <p class="stat-value">6</p>
+              <span class="stat-label">Pending Tasks</span>
+            </article>
+          </div>
+
+          <!-- Liora Premium Subscription Banner -->
+          <section class="ev-sub-banner" id="ev-sub-banner" aria-label="Subscription">
+            <div class="rings" aria-hidden="true"></div>
+            <div class="sub-inner">
+              <p class="kicker" id="ev-sub-kicker">LIORA PREMIUM SUBSCRIPTION</p>
+              <h2 class="title" id="ev-sub-title">
+                <span class="price">₦14,950</span>
+                <span class="term">1 year (12 months)</span>
+              </h2>
+              <p class="desc" id="ev-sub-desc">Activation is reviewed and approved by our team right after your payment is verified.</p>
+            </div>
+            <a class="ev-activate-btn js-gate-restricted" id="ev-sub-cta" href="/payment.html">
+              <span id="ev-sub-cta-label">ACTIVATE ACCOUNT</span>
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </a>
+          </section>
+
+          <!-- Quick Actions -->
+          <div class="section-block quick-actions-block">
+            <h3 class="section-heading">Quick actions</h3>
+            <div class="quick-actions-grid">
+              <button type="button" class="quick-action-tile js-gate-restricted" data-view-target="earn" aria-label="Tasks">
+                <span class="quick-icon-box is-folder" aria-hidden="true">
+                  <i data-lucide="folder"></i>
+                </span>
+                <h3 class="qtitle">
+                  Find tasks
+                </h3>
+              </button>
+
+              <button type="button" class="quick-action-tile js-gate-restricted" data-view-target="withdraw" aria-label="Withdraw">
+                <span class="quick-icon-box is-download" aria-hidden="true">
+                  <i data-lucide="download"></i>
+                </span>
+                <h3 class="qtitle">
+                  Withdraw funds
+                </h3>
+              </button>
+
+              <button type="button" class="quick-action-tile js-gate-restricted" data-view-target="referrals" aria-label="Referrals">
+                <span class="quick-icon-box is-users" aria-hidden="true">
+                  <i data-lucide="users"></i>
+                </span>
+                <h3 class="qtitle">
+                  Refer a Friend
+                </h3>
+              </button>
+            </div>
+          </div>
+
+          <!-- Available Tasks -->
+          <div class="section-block">
+            <h3 class="section-heading">Available tasks</h3>
+            <div class="card-stack">
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">Rate Liora AI Responses</h4>
+                    <p class="task-desc">Review Liora AI's responses and rate them good or bad.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $16.2/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="Rate Liora AI Responses">Claim &gt;</button>
+                </div>
+              </article>
+
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">Correct Liora AI Memory</h4>
+                    <p class="task-desc">Answer simple questions that improve Liora AI's memory.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $18.6/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="Correct Liora AI Memory">Claim &gt;</button>
+                </div>
+              </article>
+
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">Opinion &amp; Survey Tasks</h4>
+                    <p class="task-desc">Share your honest opinion on products and content.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $17.2/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="Opinion & Survey Tasks">Claim &gt;</button>
+                </div>
+              </article>
+
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">Audio Transcription</h4>
+                    <p class="task-desc">Type out short audio recordings.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $12/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="Audio Transcription">Claim &gt;</button>
+                </div>
+              </article>
+
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">AI Content Rating</h4>
+                    <p class="task-desc">Rate AI-generated content for quality.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $14.6/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="AI Content Rating">Claim &gt;</button>
+                </div>
+              </article>
+
+              <article class="task-card">
+                <div class="task-card-top">
+                  <div>
+                    <h4 class="task-title">Click n Earn</h4>
+                    <p class="task-desc">Complete simple online activities.</p>
+                  </div>
+                </div>
+                <div class="task-card-footer">
+                  <span class="rate-pill">Up to $12.3/hr</span>
+                  <button type="button" class="claim-btn js-gate-restricted" data-task="Click n Earn">Claim &gt;</button>
+                </div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <!-- Earn (AI Remote Jobs & Category Filter Chips) -->
+        <section class="spa-view is-hidden" id="view-earn" data-view="earn">
+          <div class="view-head">
+            <h2>AI Remote Jobs</h2>
+            <p class="view-subtitle">
+              Remote job categories are locked until your activation is approved and the waiting period completes. Earning potential up to $19.20/hr.
+            </p>
+          </div>
+
+          <div class="chip-group" id="earn-category-chips" role="group" aria-label="Task categories">
+            <button type="button" class="filter-chip is-active" data-category="all">All categories</button>
+            <button type="button" class="filter-chip" data-category="Rate Liora AI Responses">Rate Liora AI Responses</button>
+            <button type="button" class="filter-chip" data-category="Correct Liora AI Memory">Correct Liora AI Memory</button>
+            <button type="button" class="filter-chip" data-category="Opinion & Survey Tasks">Opinion &amp; Survey Tasks</button>
+            <button type="button" class="filter-chip" data-category="Audio Transcription">Audio Transcription</button>
+            <button type="button" class="filter-chip" data-category="AI Content Rating">AI Content Rating</button>
+            <button type="button" class="filter-chip" data-category="Click n Earn">Click n Earn</button>
+            <button type="button" class="filter-chip" data-category="Survey & Opinion Tasks">Survey &amp; Opinion Tasks</button>
+          </div>
+
+          <div class="card-stack" id="earn-jobs-list">
+            <article class="job-card" data-category="Rate Liora AI Responses">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="bot"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">Rate Liora AI Responses</h3>
+                    <p class="job-sub">Liora AI Tasks</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Review Liora AI's responses and rate whether the response is good or bad.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$16.20/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="Rate Liora AI Responses">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="job-card" data-category="Correct Liora AI Memory">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="sparkles"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">Correct Liora AI Memory</h3>
+                    <p class="job-sub">Liora AI Tasks</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Answer simple questions that help correct and improve Liora AI's memory.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$18.60/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="Correct Liora AI Memory">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="job-card" data-category="Opinion & Survey Tasks">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="award"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">Opinion &amp; Survey Tasks</h3>
+                    <p class="job-sub">Liora AI Tasks</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Share your honest opinion on products and content.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$17.20/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="Opinion & Survey Tasks">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="job-card" data-category="Audio Transcription">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="music-2"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">Audio Transcription</h3>
+                    <p class="job-sub">Remote Opportunities</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Type out short audio recordings.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$12/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="Audio Transcription">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="job-card" data-category="AI Content Rating">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="star"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">AI Content Rating</h3>
+                    <p class="job-sub">Remote Opportunities</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Rate AI-generated content.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$14.60/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="AI Content Rating">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="job-card" data-category="Click n Earn">
+              <div class="job-card-head">
+                <div class="job-meta">
+                  <span class="job-icon-box" aria-hidden="true">
+                    <i data-lucide="zap"></i>
+                  </span>
+                  <div>
+                    <h3 class="job-title">Click n Earn</h3>
+                    <p class="job-sub">Remote Opportunities</p>
+                  </div>
+                </div>
+                <span class="lock-indicator" title="Locked until activation" aria-label="Locked">
+                  <i data-lucide="lock"></i>
+                </span>
+              </div>
+              <p class="job-desc">Complete simple online activities.</p>
+              <div class="job-card-footer">
+                <span class="job-rate">$12.30/hr</span>
+                <button type="button" class="claim-btn js-gate-restricted" data-task="Click n Earn">Claim &gt;</button>
+              </div>
+            </article>
+
+            <article class="empty-jobs-card is-hidden" id="earn-empty-state" aria-live="polite">
+              <span class="card-icon-badge" aria-hidden="true">
+                <i data-lucide="folder"></i>
+              </span>
+              <h3 class="empty-jobs-title">No tasks in this category yet</h3>
+              <p class="empty-jobs-desc" id="earn-empty-desc">
+                There are no remote job cards available under this filter right now. Switch back to All categories to view open tasks.
+              </p>
+              <button type="button" class="secondary-pill-btn" id="earn-reset-filter-btn">
+                Show all categories
+              </button>
+            </article>
+          
+          </div>
+        </section>
+
+        <!-- Wallet -->
+        <section class="spa-view is-hidden" id="view-wallet" data-view="wallet">
+          <div class="view-head">
+            <h2>Wallet</h2>
+            <p class="view-subtitle">Your wallet is prepared. Balances activate once your earning access unlocks.</p>
+          </div>
+
+          <div class="card-stack">
+            <article class="wallet-stat-card">
+              <span class="card-icon-badge" aria-hidden="true"><i data-lucide="wallet"></i></span>
+              <p class="wallet-amount">₦23,650</p>
+              <p class="wallet-label">Welcome Bonus</p>
+            </article>
+
+            <article class="wallet-stat-card">
+              <span class="card-icon-badge" aria-hidden="true"><i data-lucide="trophy"></i></span>
+              <p class="wallet-amount">₦11,260</p>
+              <p class="wallet-label">AI Earnings</p>
+            </article>
+
+            <article class="wallet-stat-card">
+              <span class="card-icon-badge" aria-hidden="true"><i data-lucide="zap"></i></span>
+              <p class="wallet-amount">₦34,910</p>
+              <p class="wallet-label">Total Pending</p>
+            </article>
+
+            <article class="action-row-card" id="wallet-withdraw-trigger" data-view-target="withdraw">
+              <span class="card-icon-badge" aria-hidden="true"><i data-lucide="wallet"></i></span>
+              <div class="action-row-copy">
+                <h3 class="action-row-title">Withdraw funds <i data-lucide="lock" class="inline-lock"></i></h3>
+                <p class="action-row-desc">Withdrawals open when your account is fully unlocked.</p>
+              </div>
+            </article>
+
+            <article class="action-row-card" data-view-target="transactions">
+              <span class="card-icon-badge" aria-hidden="true"><i data-lucide="shield-check"></i></span>
+              <div class="action-row-copy">
+                <h3 class="action-row-title">Transaction history</h3>
+                <p class="action-row-desc">Review your subscription payments and payouts.</p>
+              </div>
+            </article>
+
+            <article class="notice-card">
+              <p>
+                Payouts are processed by the LIORA finance team after work is verified through your personal agent. Withdrawal requests open automatically once your earning access is live.
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <!-- Alerts / Notifications -->
+        <section class="spa-view is-hidden" id="view-alerts" data-view="alerts">
+          <div class="view-head">
+            <h2>Notifications</h2>
+            <p class="view-subtitle">Account updates, payment confirmations and platform announcements.</p>
+          </div>
+
+          <div class="card-stack">
+            <article class="alert-card">
+              <div class="alert-card-top">
+                <div class="alert-title-group">
+                  <span class="card-icon-badge" aria-hidden="true"><i data-lucide="bell"></i></span>
+                  <h3 class="alert-title">Welcome to Liora</h3>
+                </div>
+                <span class="alert-date">Nov 21, 2026</span>
+              </div>
+              <p class="alert-copy">
+                Hi <span id="alert-user-first-name">Theophilus</span>, your Liora account is ready. One last step, activate your Premium Subscription to unlock your dashboard, access earnings, and start cashing out.
+              </p>
+              <p class="alert-subcopy">Don't wait: activation takes less than a minute.</p>
+              <button type="button" class="cta-pill-btn js-gate-restricted" data-view-target="">
+                Activate My Account &rarr;
+              </button>
+            </article>
+          </div>
+        </section>
+
+        <!-- Profile -->
+        <section class="spa-view is-hidden" id="view-profile" data-view="profile">
+          <div class="view-head">
+            <h2>Profile</h2>
+            <p class="view-subtitle">Your identity on LIORA — keep it updated.</p>
+          </div>
+
+          <div class="card-stack">
+            <article class="profile-hero-card">
+              <div class="profile-avatar-wrap">
+                <div class="profile-avatar" id="profile-avatar">TR</div>
+                <span class="avatar-camera-badge js-gate-restricted" aria-hidden="true"><i data-lucide="plus"></i></span>
+              </div>
+              <div class="profile-identity">
+                <h3 class="profile-name" id="profile-full-name">Theophilus Richard Theophilus</h3>
+                <p class="profile-handle" id="profile-handle">@jheeyy</p>
+                <button type="button" class="secondary-pill-btn js-gate-restricted" id="profile-photo-btn">
+                  Add profile picture
+                </button>
+              </div>
+            </article>
+
+            <article class="details-card">
+              <h3 class="details-heading">
+                <i data-lucide="badge-check"></i>
+                <span>Account details</span>
+              </h3>
+              <dl class="details-list">
+                <div class="details-row">
+                  <dt>Full name</dt>
+                  <dd id="detail-full-name">Theophilus Richard Theophilus</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Username</dt>
+                  <dd id="detail-username">@jheeyy</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Email</dt>
+                  <dd id="detail-email">jhxydev.me@gmail.com</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Phone</dt>
+                  <dd id="detail-phone">+2347069067574</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Subscription</dt>
+                  <dd id="detail-subscription">Premium</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Account status</dt>
+                  <dd class="status-pending" id="detail-account-status">Payment Pending</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Referral ID</dt>
+                  <dd id="detail-referral-id">&mdash;</dd>
+                </div>
+                <div class="details-row">
+                  <dt>Member since</dt>
+                  <dd id="detail-member-since">21 Nov 2026</dd>
+                </div>
+              </dl>
+            </article>
+          </div>
+        </section>
+
+        <!-- Supporting Sidebar Views -->
+        <section class="spa-view is-hidden" id="view-withdraw" data-view="withdraw">
+          <div class="view-head">
+            <h2>Withdraw</h2>
+            <p class="view-subtitle">Withdrawals open once your account activation and earning access are live.</p>
+          </div>
+          <article class="notice-card">
+            <p>Available balance: <strong>₦0</strong> &middot; Pending balance: <strong>₦34,910</strong>.</p>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-subscription" data-view="subscription">
+          <div class="view-head">
+            <h2>Subscription</h2>
+            <p class="view-subtitle">Premium plan status: <strong>Payment Pending</strong>.</p>
+          </div>
+          <article class="alert-card">
+            <h3 class="alert-title">Activate Premium Access</h3>
+            <p class="alert-copy">Complete activation to unlock remote job categories and withdrawal requests.</p>
+            <button type="button" class="cta-pill-btn" id="open-activation-btn">Continue to Activation &rarr;</button>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-referrals" data-view="referrals">
+          <div class="view-head">
+            <h2>Referrals</h2>
+            <p class="view-subtitle">Share your invite link once your account is active.</p>
+          </div>
+          <article class="info-card">
+            <span class="card-label">Referral ID</span>
+            <p class="stat-value">&mdash;</p>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-messages" data-view="messages">
+          <div class="view-head">
+            <h2>Messages</h2>
+            <p class="view-subtitle">Direct messages from Liora and your assigned agent.</p>
+          </div>
+          <article class="notice-card">
+            <p>No new messages right now. Tap <strong>Chat Support</strong> if you need help.</p>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-transactions" data-view="transactions">
+          <div class="view-head">
+            <h2>Transactions</h2>
+            <p class="view-subtitle">Subscription payments and payout records.</p>
+          </div>
+          <article class="notice-card">
+            <p>No completed transactions yet. Current status: Payment Pending.</p>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-settings" data-view="settings">
+          <div class="view-head">
+            <h2>Settings</h2>
+            <p class="view-subtitle">Manage your account preferences and session.</p>
+          </div>
+          <article class="info-card">
+            <span class="card-label">Signed in as</span>
+            <p class="view-placeholder" id="settings-signed-in-as">@jheeyy &middot; jhxydev.me@gmail.com</p>
+          </article>
+        </section>
+
+        <section class="spa-view is-hidden" id="view-support" data-view="support">
+          <div class="view-head">
+            <h2>Help &amp; Support</h2>
+            <p class="view-subtitle">Get assistance with activation, tasks, or payouts.</p>
+          </div>
+          <article class="notice-card">
+            <p>Use the floating <strong>Chat Support</strong> button in the bottom-right corner to reach support.</p>
+          </article>
+        </section>
+      </main>
+
+      <!-- 3. Bottom Navigation Bar -->
+      <nav class="bottom-nav" aria-label="Primary navigation">
+        <button type="button" class="nav-tab is-active" data-view-target="home">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+          </svg>
+          <span>Home</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-view-target="earn">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path>
+          </svg>
+          <span>Earn</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-view-target="wallet">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"></path>
+            <path d="M16 14h.01"></path>
+          </svg>
+          <span>Wallet</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-view-target="alerts">
+          <span class="nav-icon-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+            <span class="badge-dot" aria-hidden="true"></span>
+          </span>
+          <span>Alerts</span>
+        </button>
+
+        <button type="button" class="nav-tab" data-view-target="profile">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+            <circle cx="12" cy="7" r="4"></circle>
+          </svg>
+          <span>Profile</span>
+        </button>
+      </nav>
+    </div>
+
+    <!-- Floating Chat Support Button -->
+    <button type="button" class="chat-fab js-gate-restricted" id="chat-support-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 18v-6a9 9 0 0 1 18 0v6"></path>
+        <path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path>
+      </svg>
+      <span>Chat Support</span>
+    </button>
+
+    <!-- Shared Backdrop Overlay (Sibling to .main-shell) -->
+    <div class="shell-backdrop" id="shell-backdrop" aria-hidden="true"></div>
+
+    <!-- Slide-Over Sidebar Drawer (Sibling to .main-shell) -->
+    <aside class="sidebar-drawer" id="sidebar-drawer" aria-label="Sidebar navigation" aria-hidden="true">
+      <div class="drawer-header">
+        <div class="brand-logo">
+          <svg class="brand__mark" width="32" height="36" viewBox="0 0 250 276" aria-hidden="true" class="h-9 w-8"><defs><linearGradient id="liora-mark-gradient" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ff8a00"></stop><stop offset="55%" stop-color="#ffb000"></stop><stop offset="100%" stop-color="#ffe14a"></stop></linearGradient></defs><g fill="url(#liora-mark-gradient)"><path d="M90 4h93L98 132H5z"></path><path d="M5 136h93l44 66H49z"></path><path d="M196 134l48 69-48 69-47-69z"></path></g></svg>
+          <span class="brand-text">Liora</span>
+        </div>
+      </div>
+
+      <nav class="drawer-nav">
+        <button type="button" class="drawer-link is-active" data-view-target="home">
+          <span class="drawer-link-main">
+            <i data-lucide="layout-grid" class="drawer-icon"></i>
+            <span>Dashboard</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link" data-view-target="earn">
+          <span class="drawer-link-main">
+            <i data-lucide="folder" class="drawer-icon"></i>
+            <span>Tasks</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="wallet" class="drawer-icon"></i>
+            <span>Wallet</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="download" class="drawer-icon"></i>
+            <span>Withdraw</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="sparkles" class="drawer-icon"></i>
+            <span>Subscription</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="users" class="drawer-icon"></i>
+            <span>Referrals</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="bell" class="drawer-icon"></i>
+            <span>Notifications</span>
+          </span>
+          <span class="drawer-dot" aria-hidden="true"></span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="message-square" class="drawer-icon"></i>
+            <span>Messages</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="user-check" class="drawer-icon"></i>
+            <span>Profile</span>
+          </span>
+        </button>
+
+        <hr class="drawer-divider" />
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="settings" class="drawer-icon"></i>
+            <span>Settings</span>
+          </span>
+        </button>
+
+        <button type="button" class="drawer-link js-gate-restricted" data-view-target="">
+          <span class="drawer-link-main">
+            <i data-lucide="headset" class="drawer-icon"></i>
+            <span>Help &amp; Support</span>
+          </span>
+        </button>
+      </nav>
+
+      <div class="drawer-footer">
+        <div class="drawer-user">
+          <div class="user-avatar" id="drawer-avatar">TR</div>
+          <div class="user-meta">
+            <p class="user-name" id="drawer-user-name">Theophilus Richard Theop...</p>
+            <p class="user-handle" id="drawer-user-handle">@jheeyy</p>
+          </div>
+        </div>
+        <button type="button" class="drawer-logout js-gate-restricted" id="logout-btn">Logout</button>
+      </div>
+    </aside>
+
+    <!-- Reusable / Gatekeeping Modal Container (Sibling to .main-shell) -->
+    <div class="app-modal" id="app-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-hidden="true">
+      <div class="modal-card gate-modal-card">
+        <button type="button" class="gate-close-btn" id="modal-close-btn" aria-label="Close modal">
+          <i data-lucide="x"></i>
+        </button>
+
+        <div class="gate-lock-badge" aria-hidden="true">
+          <i data-lucide="lock"></i>
+        </div>
+
+        <h3 class="gate-title" id="modal-title">Access restricted</h3>
+        <p class="gate-desc" id="modal-body">
+          Please activate your Liora Premium Subscription to access this section as a registered member.
+        </p>
+
+        <div class="gate-actions">
+          <a href="/src/payment/" class="gate-activate-btn" id="modal-activate-link">Activate now</a>
+          <button type="button" class="gate-cancel-btn" id="modal-cancel-btn">Back to dashboard</button>
+        </div>
+      </div>
+    </div>
+  </div>
   <script type="module">
     import { requireSession } from '../assets/js/session.js';
     requireSession();
